@@ -11,6 +11,7 @@ force=0
 # folder root. The second field is the folder that holds SKILL.md.
 skills=(
   "bro:bro"
+  "first-principles:first-principles"
   "interview:interview"
   "human-review:human-review/src"
   "no-ai-slop:no-ai-slop/skills/no-ai-slop"

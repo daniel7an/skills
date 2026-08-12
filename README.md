@@ -9,9 +9,14 @@ Written here:
 - `bro` : restate the last message in plain human language, no jargon.
 - `interview` : question the user with AskUserQuestion to pin down intent and
   fill the gaps before any work starts.
+- `first-principles` : strip a problem to physical, mathematical and
+  raw-material truths, compute the theoretical floor, and rebuild from there.
 
-Both are user-invoked only (`disable-model-invocation: true`), so they run when
-you type `/bro` or `/interview`, never on the model's own initiative.
+`bro` and `interview` are user-invoked only (`disable-model-invocation: true`),
+so they run when you type `/bro` or `/interview`, never on the model's own
+initiative. `first-principles` carries its own activation triggers, so it fires
+on design, cost, and optimization questions by itself. Add
+`disable-model-invocation: true` to its frontmatter to make it slash-only too.
 
 Vendored from other people, MIT, copied whole with the upstream commit recorded
 in each folder's `UPSTREAM.md`:
