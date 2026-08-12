@@ -34,10 +34,22 @@ in each folder's `UPSTREAM.md`:
 ./install.sh
 ```
 
-It symlinks each skill into `~/.claude/skills/`, so an edit in this repo takes
-effect at once. It refuses to overwrite a real directory already sitting there,
-unless you pass `--force`. Set `CLAUDE_SKILLS_DIR` to link somewhere else, and
-put project-only skills in `<repo>/.claude/skills/` instead.
+It symlinks each skill into every agent home on the machine, so an edit in this
+repo takes effect at once, everywhere:
+
+- `~/.claude/skills/` for Claude Code.
+- `~/.codex/skills/` and `~/.codex-tatul/skills/` for Codex, one per account.
+  A home that does not exist is skipped, never created.
+- opencode needs nothing. It auto-loads `~/.claude/skills/` itself, so linking
+  it again would only list every skill twice.
+
+All three follow the symlinks, which was checked rather than assumed: Codex
+lists all five in `codex debug prompt-input`, and opencode lists them on the
+`/skill` endpoint of `opencode serve`.
+
+`install.sh` refuses to overwrite a real directory already sitting in a target,
+unless you pass `--force`. Set `CLAUDE_SKILLS_DIR` to link into one directory
+only, and put project-only skills in `<repo>/.claude/skills/` instead.
 
 A vendored folder keeps its upstream layout, so its `SKILL.md` is not at the
 folder root. `install.sh` holds the inner path for each one.
