@@ -11,6 +11,7 @@ force=0
 # folder root. The second field is the folder that holds SKILL.md.
 skills=(
   "bro:bro"
+  "delegate-wave:delegate-wave"
   "first-principles:first-principles"
   "interview:interview"
   "human-review:human-review/src"
