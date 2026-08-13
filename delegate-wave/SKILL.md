@@ -78,15 +78,25 @@ Include these limits in every brief, word for word:
 
 ## Step 3: launch the wave
 
-One pane per worker:
+One pane per worker. Always name the pane straight after the split, before the
+agent starts:
 
 ```sh
 PANE=$(herdr pane split --current --direction right --ratio 0.4 --no-focus \
   | python3 -c "import sys,json;print(json.load(sys.stdin)['result']['pane']['pane_id'])")
 
+herdr pane rename "$PANE" "wave-1 loaders"
+
 herdr agent start wave-1 --kind pi --pane "$PANE" --timeout 60000 \
   -- --model opencode-go/deepseek-v4-flash
 ```
+
+The name is what the user reads to tell one worker from another, so make it say
+the job, not the number: `wave-1 loaders`, `wave-2 run.py flags`,
+`wave-3 rename backend`. Keep the `wave-<n>` prefix so the pane label lines up
+with the agent name and with the `wave-<n>.md` report file. A wave of unnamed
+panes is a wall of identical boxes, which defeats the reason for using panes at
+all.
 
 Then start every worker before waiting for any of them. `--until working`
 returns as soon as the worker starts, so the wave runs at the same time instead
