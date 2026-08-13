@@ -15,6 +15,7 @@ skills=(
   "interview:interview"
   "human-review:human-review/src"
   "no-ai-slop:no-ai-slop/skills/no-ai-slop"
+  "show-me:show-me/skills/show-me"
 )
 
 # One entry per agent home. opencode is absent on purpose: it auto-loads
@@ -23,6 +24,7 @@ roots=(
   "$HOME/.claude/skills"
   "$HOME/.codex/skills"
   "$HOME/.codex-tatul/skills"
+  "$HOME/.codex-b/skills"
 )
 [ -n "${CLAUDE_SKILLS_DIR:-}" ] && roots=("$CLAUDE_SKILLS_DIR")
 

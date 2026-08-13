@@ -27,6 +27,10 @@ in each folder's `UPSTREAM.md`:
 - `no-ai-slop` : edit a draft into sharper, more human writing, or report which
   AI-slop patterns it hits. From https://github.com/petergyang/no-ai-slop by
   Peter Yang.
+- `show-me` : answer visually instead of in walls of prose, with pseudocode,
+  call trees, file trees, Mermaid diagrams, diffs, or one focused HTML page.
+  From https://github.com/humanlayer/skills by HumanLayer, which holds five
+  more skills that are not vendored here.
 
 ## Install
 
